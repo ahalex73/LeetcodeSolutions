@@ -6,7 +6,7 @@ class Solution {
 
         while(num > 0){
             if((num & bitMask) == 0){
-                num = num >> 1;
+                num >>= 1;
             }
             else{
                 num -= 1;
