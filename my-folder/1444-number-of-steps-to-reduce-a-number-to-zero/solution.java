@@ -1,5 +1,7 @@
 class Solution {
-    // BitWise solution
+    // BitWise solution 
+    // Time: O(log n)
+    // Space: O(1)
     public int numberOfSteps(int num) {
         int steps = 0;
         int bitMask = 1;
