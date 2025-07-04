@@ -3,26 +3,25 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        dummy = ListNode()
-        current = dummy # Assigning the "head" basically
+        # Recursive version
 
-        while list1 and list2:
-            if list1.val < list2.val:
-                current.next = list1
-                list1 = list1.next
-            else:
-                current.next = list2
-                list2 = list2.next
-            current = current.next
+        # Time Complexity: O(n + m) where n and m are the lengths of list1 and list2.
 
-        # Attach the remainder of the list that still has nodes
-        if list1:
-            current.next = list1
+        # Space Complexity: O(n + m) due to recursion stack (one frame per node).
+
+        # Base case
+        if list1 is None:
+            return list2
+        
+        if list2 is None:
+            return list1
+        
+        # Recursive case
+        if list1.val < list2.val:
+            list1.next = self.mergeTwoLists(list1.next, list2)
+            return list1
         else:
-            current.next = list2
-
-        return dummy.next
-
+            list2.next = self.mergeTwoLists(list1, list2.next)
+            return list2
