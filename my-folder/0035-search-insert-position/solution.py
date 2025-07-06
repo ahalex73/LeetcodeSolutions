@@ -3,7 +3,6 @@ class Solution:
         # Binary search solution
         # Time: O(log n)
         # Space: O(1)
-
         lp = 0
         rp = len(nums) - 1
 
