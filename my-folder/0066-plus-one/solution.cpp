@@ -5,8 +5,8 @@ public:
         // Time: O(n)
         // Space: O(1) because .insert is considered to be in-place storage 
         // Make the leetcode submission have the zoomies (passes synchronisation with stdio)
-        // std::ios::sync_with_stdio(false); 
-        // std::cin.tie(nullptr);
+        std::ios::sync_with_stdio(false); 
+        std::cin.tie(nullptr);
 
         int i = digits.size() - 1; 
         
