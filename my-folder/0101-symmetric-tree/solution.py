@@ -9,13 +9,15 @@ class Solution:
     # Space: O(h) # Stack usage during code run - height of binary tree
 
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:    
-        def is_mirror(leftNode, rightNode):
-            if not leftNode and not rightNode:
-                return True 
-
-            if not leftNode or not rightNode:
-                return False
-
-            return leftNode.val == rightNode.val and is_mirror(leftNode.left, rightNode.right) and is_mirror(leftNode.right, rightNode.left)
+        # ln = leftNode and rn = rightNode in terms of symmetry
+        def is_mirror(ln, rn):
+            # Base case
+            if not ln and not rn:
+                return True
             
+            if not ln or not rn:
+                return False
+            
+            return ln.val == rn.val and is_mirror(ln.left, rn.right) and is_mirror(ln.right, rn.left)
+        
         return is_mirror(root.left, root.right)
