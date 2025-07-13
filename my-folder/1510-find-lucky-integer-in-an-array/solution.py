@@ -1,7 +1,7 @@
 class Solution:
     def findLucky(self, arr: List[int]) -> int:
-        # Time: O(n + n) -> O(n)
-        # Space: O(1) considering we would have O(9) possible numbers
+        # Time: O(n + m) -> O(n) because m <= n
+        # Space: O(1) considering we have 1 <= arr[i] <= 500
         
         freq = {}
         largest_lucky = -1
