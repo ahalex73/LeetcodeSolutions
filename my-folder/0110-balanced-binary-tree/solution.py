@@ -8,25 +8,20 @@ class Solution:
     # Time: O(n) - Number of nodes
     # Space: O(h) - Height of tree - best case O(log n)
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
-        def check(node):
-            if not node:
-                return 0
+        
+        def dfs(root):
+            if not root:
+                return [True, 0] # Returning height of 0
+            
+            left_balanced, left_height = dfs(root.left)
+            right_balanced,  right_height = dfs(root.right)
 
-            # Check for left subtree being balanced
-            left = check(node.left)
-            if left == -1:
-                return -1
+            is_balanced = left_balanced and right_balanced and abs(left_height - right_height) <= 1
 
-            # Check for right subtree being balanced
-            right = check(node.right)
-            if right == -1:
-                return -1
+            return [is_balanced, 1 + max(left_height, right_height)]
 
-            # Check if the height difference of the left and right subtrees are balanced i.e  height_diff <= 1
-            if abs(left - right) > 1:
-                return -1
+        return dfs(root)[0] # Returns a true or false considering we have two return values
 
-            # Return the height
-            return max(left, right) + 1
+            
 
-        return check(root) != -1
+
