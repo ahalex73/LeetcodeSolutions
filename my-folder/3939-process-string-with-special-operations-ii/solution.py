@@ -1,5 +1,6 @@
 class Solution:
     def processStr(self, s: str, k: int) -> str:
+        # clever reverse simulation/index mapping approach
         length = 0
         for ch in s:
             if ch.islower():
