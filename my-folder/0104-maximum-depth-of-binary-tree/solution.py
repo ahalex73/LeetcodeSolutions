@@ -15,21 +15,23 @@ class Solution:
         # Space: O(w) - width of the tree
         if not root:
             return 0
-
+        
         q = deque()
         q.append(root)
         depth = 0
 
-        while q:
-            depth += 1
-
-            for _ in range(len(q)):
-                # Pop the parent node
-                node = q.popleft() 
-                # Append children nodes
-                if(node.left):
+        while(q):
+            for i in range(len(q)):
+                # len(q) here is the nodes on the current level
+                node = q.popleft()
+                if node.left:
                     q.append(node.left)
-                if(node.right):
+                if node.right:
                     q.append(node.right)
+                
+            depth += 1
             
         return depth
+            
+        
+
