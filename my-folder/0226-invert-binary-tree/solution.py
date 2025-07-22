@@ -6,22 +6,50 @@
 #         self.right = right
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        # Breadth first search
+        # Depth first seach
         # Time: O(n)
         # Space: O(n)
 
-        if root is None:
+        if not root:
             return None
         
-        q = deque([root])
+        root.left, root.right = root.right, root.left
+    
+        self.invertTree(root.left)
+        self.invertTree(root.right)
 
-        while q:
-            node = q.popleft()
-            node.left, node.right = node.right, node.left
-
-            if(node.left):
-                q.append(node.left)
-            if(node.right):
-                q.append(node.right)
-            
         return root
+
+
+
+
+
+
+
+
+
+
+        
+        
+        
+        
+        
+        # # Breadth first search
+        # # Time: O(n)
+        # # Space: O(n)
+
+        # if root is None:
+        #     return None
+        
+        # q = deque([root])
+
+        # while q:
+        #     node = q.popleft()
+        #     node.left, node.right = node.right, node.left
+
+        #     if(node.left):
+        #         q.append(node.left)
+        #     if(node.right):
+        #         q.append(node.right)
+            
+        # return root
