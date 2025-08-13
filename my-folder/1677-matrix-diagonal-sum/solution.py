@@ -16,7 +16,7 @@ class Solution:
             total_sum += mat[i][i] 
 
             # Secondary diagonal
-            total_sum += mat[i][n - 1 - i]
+            total_sum += mat[i][n - i - 1]
 
         # Remove duplicate entries if the matrix has a midpoint
         total_sum -= midpoint
