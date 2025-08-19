@@ -1,5 +1,7 @@
 class Solution:
     def zeroFilledSubarray(self, nums: List[int]) -> int:
+        # Time: O(n)
+        # Space: O(1)
         count = 0
         total = 0
 
