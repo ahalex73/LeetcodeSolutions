@@ -3,20 +3,17 @@ class Solution:
         # Time: O(n)
         # Space: O(1)
         
-        l = 0
-        r = 1
-        maxP = 0
+        max_profit = 0
+        l, r =  0, 1
 
-        while(r < len(prices)):
-            # Sell the stock
-            if prices[l] < prices[r]:
+        while r < len(prices):
+            if(prices[l] < prices[r]):
                 profit = prices[r] - prices[l]
-                maxP = max(maxP, profit)
-
+                max_profit = max(max_profit, profit)
+            
             else:
-                # "Buy" the next cheaper stock
                 l = r
             
             r += 1
         
-        return maxP
+        return max_profit
