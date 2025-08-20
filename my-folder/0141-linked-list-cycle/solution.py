@@ -6,6 +6,8 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
+        # Time: O(n)
+        # Space: O(1)
         # Use tortoise an hare algorithm here
 
         fast = head
