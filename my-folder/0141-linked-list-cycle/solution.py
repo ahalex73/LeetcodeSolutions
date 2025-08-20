@@ -6,18 +6,18 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        # Time: O(n)
-        # Space: O(n)
-        
-        seen = set()
-        curr = head
+        # Use tortoise an hare algorithm here
 
-        while curr:
-            if(curr in seen):
+        fast = head
+        slow = head
+
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+
+            if fast == slow:
                 return True
 
-            seen.add(curr)
-            curr = curr.next
         
         return False
 
