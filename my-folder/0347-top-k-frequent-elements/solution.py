@@ -15,6 +15,6 @@ class Solution:
         res = []
 
         while len(res) < k:
-            res.append(heapq.heappop(heap)[1])  # O(log n)
+            res.append(heapq.heappop(heap)[1])  # O(log k)
         
         return res
