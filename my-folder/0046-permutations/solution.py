@@ -1,7 +1,5 @@
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
-        # Time: O(n * n!)
-        # Space: O(n * n!)
         n = len(nums)
         ans, sol = [], []
 
@@ -12,13 +10,14 @@ class Solution:
             
             for x in nums:
                 if x not in sol:
-                    # build a solution
+                    # Append x to current solution
                     sol.append(x)
                     backtrack()
                     sol.pop()
-                
+                    
+        
         backtrack()
-
+    
         return ans
                     
                     
