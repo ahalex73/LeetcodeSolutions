@@ -10,7 +10,11 @@ class Solution:
         # Gather the distance from all of the points
         for point in points:
             distance = self.distance(origin, point)
-            heapq.heappush(heap, (distance, point))
+            heapq.heappush(heap, (-distance, point))
+
+            if len(heap) > k:
+                heapq.heappop(heap)
+
 
         result = [heapq.heappop(heap)[1] for _ in range(k)]
         return result
