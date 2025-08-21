@@ -1,8 +1,8 @@
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
         # Time: O(n log k)
-        # Space: O(1)
-        
+        # Space: O(1) -> O(k)
+
         heap = nums[:k]
         heapq.heapify(heap)
 
