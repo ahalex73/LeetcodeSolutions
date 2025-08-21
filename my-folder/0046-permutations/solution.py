@@ -1,5 +1,8 @@
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
+        # Time: O(n * n!)
+        # Space: O(n * n!)
+        
         n = len(nums)
         ans, sol = [], []
 
