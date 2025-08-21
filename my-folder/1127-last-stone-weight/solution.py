@@ -1,24 +1,21 @@
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
-        # Time: O(n^2 log n)
+        # Time: O(log n)
         # Space: O(1)
-        # Space: 
-        # x and y are stones, y is never lighter compared to x, but can be equal
-        # if x != y, the stone of weight x is destroyed (made 0), and the stone of weight y has new weight y - x
 
-        stones.sort()
+        # Max heap version
 
-        while len(stones) > 1:
-            y = stones.pop()
-            x = stones.pop()
+        for i in range(len(stones)):
+            stones[i] *= -1
 
-            if (x != y):
-                stones.append(y - x)    # O(1)
-                stones.sort()           # O(n log n)
+        heapq.heapify(stones)
+
+        while(len(stones) > 1):
+            y = heapq.heappop(stones)
+            x = heapq.heappop(stones)
+
+            if y < x:
+                heapq.heappush(stones, y - x)
             
-        return stones[0] if stones else 0
-
-            
-
-
+        return -heapq.heappop(stones) if stones else 0
 
