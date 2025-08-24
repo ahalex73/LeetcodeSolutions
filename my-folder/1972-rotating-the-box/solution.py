@@ -1,5 +1,7 @@
 class Solution:
     def rotateTheBox(self, boxGrid: List[List[str]]) -> List[List[str]]:
+        # Time: O(n x m)
+        # Space: O(n x m)
         # Step 1: Rotate 90° clockwise
         # reverse rows + transpose
         rotated = [list(row) for row in zip(*boxGrid[::-1])] # boxGrid[::-1] is reversing row elements and then * before boxGrid is unpacking
